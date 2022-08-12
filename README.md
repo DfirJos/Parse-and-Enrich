@@ -2,7 +2,7 @@
 
 This script searches for indicators in doc(x), xls(x), pdf, txt, and csv files. It also enriches IP addresses with additonal IP address data from ipinfo.io.
 
-Default indicators that it looks for
+Default indicators that it looks for:
 - URL's
 - E-mail addresses
 - mobile phone numbers
@@ -27,9 +27,7 @@ It outputs them to a csv file:
 ```
 
 
-
-
-## How to enrich Office365 UAL logs (or other CSV's) with ipinfo.io data
+## How to enrich Office365 UAL logs (or other CSV's). It will enrich IP addresses wiht ipinfo.io data
 
 ```bash
   $ Parse-and-Enrich.py -i Input/AuditRecords.csv -csv_e
@@ -41,7 +39,7 @@ timestamp, user, ip
 2022-08-11 13:05:01, user1@company.nl, 8.8.8.8
 ```
 
-Becomes AuditRecords.csv_enriched.csv:
+Becomes 'AuditRecords.csv_enriched.csv':
 
 ```
 timestamp, user, ip, ip_info
@@ -49,6 +47,10 @@ timestamp, user, ip, ip_info
 ```
 
 
+## Requirements
+
+If you would like to use the enrich feature, you need to put the API key (https://ipinfo.io/) in the file 'ip_info.key'. The file must be located in the same folder as the script.
+
 ## Limitations
 
-- csv files must be of the same encoding type. You can specify the type with, for example: -csv_c UTF8
+- If you provide multiple csv files specified with the '-i' parameter (for example: -i input/*csv), they must be of the same encoding type. You can specify the encoding type that the csv's have: -csv_c UTF8 (see all encoding types: https://docs.python.org/3/library/codecs.html#standard-encodings)
