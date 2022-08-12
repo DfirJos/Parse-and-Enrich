@@ -27,19 +27,21 @@ It outputs them to a csv file:
 ```
 
 
-## How to enrich Office365 UAL logs (or other CSV's). It will enrich IP addresses wiht ipinfo.io data
+## How to enrich Office365 UAL logs (or other CSV's).
 
-```bash
-  $ Parse-and-Enrich.py -i Input/AuditRecords.csv -csv_e
-```
+The script will take Office 365 UAL logs in the form of CSV files and enrich IP addresses with data from ipinfo.io. 
 
-AuditRecords.csv:
+Input (AuditRecords.csv):
 ```
 timestamp, user, ip
 2022-08-11 13:05:01, user1@company.nl, 8.8.8.8
 ```
 
-Becomes 'AuditRecords.csv_enriched.csv':
+```bash
+  $ Parse-and-Enrich.py -i Input/AuditRecords.csv -csv_e
+```
+
+Output (AuditRecords.csv_enriched.csv):
 ```
 timestamp, user, ip, ip_info
 2022-08-11 13:05:01, user1@company.nl, 8.8.8.8, {"ip": "8.8.8.8", "hostname": "dns.google", "anycast": "True", "city": "Mountain View", "region": "California", "country": "US", "loc": "37.4056,-122.0775", "org": "AS15169 Google LLC", "postal": "94043", "timezone": "America/Los_Angeles", "country_name": "United States", "latitude": "37.4056", "longitude": "-122.0775"}
