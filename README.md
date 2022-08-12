@@ -37,6 +37,7 @@ timestamp, user, ip
 2022-08-11 13:05:01, user1@company.nl, 8.8.8.8
 ```
 
+Command:
 ```bash
   $ Parse-and-Enrich.py -i Input/AuditRecords.csv -csv_e
 ```
