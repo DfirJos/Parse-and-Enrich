@@ -1,6 +1,6 @@
 # Parse-and-Enrich - finding indicators in doc(x), xlsx(x), pdf, txt, and csv
 
-This script searches for indicators in doc(x), xls(x), pdf, txt, and csv files. It also enriches IP addresses with additonal IP address data from ipinfo.io.
+This script searches for indicators in doc(x), xls(x), pdf, txt, and csv files. It also enriches IP addresses with additonal data from ipinfo.io.
 
 Default indicators that it looks for:
 - URL's
@@ -33,14 +33,13 @@ It outputs them to a csv file:
   $ Parse-and-Enrich.py -i Input/AuditRecords.csv -csv_e
 ```
 
-AuditRecords.csv
+AuditRecords.csv:
 ```
 timestamp, user, ip
 2022-08-11 13:05:01, user1@company.nl, 8.8.8.8
 ```
 
 Becomes 'AuditRecords.csv_enriched.csv':
-
 ```
 timestamp, user, ip, ip_info
 2022-08-11 13:05:01, user1@company.nl, 8.8.8.8, {"ip": "8.8.8.8", "hostname": "dns.google", "anycast": "True", "city": "Mountain View", "region": "California", "country": "US", "loc": "37.4056,-122.0775", "org": "AS15169 Google LLC", "postal": "94043", "timezone": "America/Los_Angeles", "country_name": "United States", "latitude": "37.4056", "longitude": "-122.0775"}

@@ -1,0 +1,6 @@
+openpyxl==3.0.9
+python-docx==0.8.11
+ipinfo==4.2.1
+xlrd==2.0.1
+pdfminer==20191125
+pdfminer.six==20220506
